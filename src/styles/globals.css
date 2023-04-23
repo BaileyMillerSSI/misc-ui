@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.checkbox {
+  background-image: url("/images/check.svg");
+}
+
+@layer components {
+  .button {
+    @apply 
+    inline-block 
+    rounded 
+    bg-blue-700
+    px-6 
+    pb-2
+    pt-2.5 
+    text-white
+    shadow-md
+    transition
+    duration-150
+    ease-in-out
+    hover:bg-blue-800
+    hover:shadow-lg 
+    focus:bg-blue-800 
+    focus:shadow-lg 
+    focus:outline-none 
+    focus:ring-0 
+    active:bg-blue-900 
+    active:shadow-lg
+    disabled:cursor-not-allowed
+    disabled:opacity-60;
+  }
+}
