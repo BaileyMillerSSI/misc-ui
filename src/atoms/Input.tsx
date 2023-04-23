@@ -1,8 +1,8 @@
-import { Control, useController, Path } from "react-hook-form";
+import { type Control, useController, type Path } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
-import { HTMLInputTypeAttribute } from "react";
-import { LoginFormSchema } from "~/pages/ui/login";
-import { SignUpFormSchema } from "~/pages/ui/signup";
+import { type HTMLInputTypeAttribute } from "react";
+import { type LoginFormSchema } from "~/pages/ui/login";
+import { type SignUpFormSchema } from "~/pages/ui/signup";
 
 type KnownFormSchemas = LoginFormSchema | SignUpFormSchema;
 
@@ -42,7 +42,7 @@ const Input = <FormType extends KnownFormSchemas>({
         ref={ref}
         onChange={onChange}
         onBlur={onBlur}
-        defaultValue={value as any}
+        defaultValue={value as string | number | readonly string[] | undefined}
         autoComplete={autoComplete}
       />
       <label

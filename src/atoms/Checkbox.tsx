@@ -1,5 +1,5 @@
-import { Control, FieldName, useController } from "react-hook-form";
-import { LoginFormSchema } from "~/pages/ui/login";
+import { type Control, type FieldName, useController } from "react-hook-form";
+import { type LoginFormSchema } from "~/pages/ui/login";
 import ErrorMessage from "./ErrorMessage";
 
 interface ICheckboxProps {
@@ -28,7 +28,7 @@ const Checkbox = ({ name, control, label }: ICheckboxProps) => {
         ref={ref}
         onChange={onChange}
         onBlur={onBlur}
-        defaultValue={value as any}
+        defaultValue={value as string | number | readonly string[] | undefined}
       />
       <label
         htmlFor={name}

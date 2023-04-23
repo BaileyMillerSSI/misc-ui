@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import Link from "next/link";
 import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
@@ -34,7 +34,7 @@ const LoginPage: NextPage = () => {
   return (
     <DemoContainer>
       <form
-        onSubmit={handleSubmit((form) => console.log(form))}
+        onSubmit={void handleSubmit((form) => console.log(form))}
         className="flex flex-col gap-6"
       >
         <Input<LoginFormSchema>
