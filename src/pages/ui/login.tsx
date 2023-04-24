@@ -42,6 +42,7 @@ const LoginPage: NextPage = () => {
           control={control}
           label="Enter Email"
           type="email"
+          placeholder="Enter your email"
         />
 
         <Input<LoginFormSchema>
@@ -49,6 +50,7 @@ const LoginPage: NextPage = () => {
           control={control}
           label="Enter Password"
           type="password"
+          placeholder="Enter your password"
         />
 
         <Checkbox name="rememberMe" control={control} label="Remember Me" />

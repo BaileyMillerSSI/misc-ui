@@ -21,7 +21,7 @@ const Input = <FormType extends KnownFormSchemas>({
   placeholder,
   label,
   type,
-  autoComplete
+  autoComplete,
 }: IInputProps<FormType>) => {
   const {
     field: { onChange, onBlur, ref, value },

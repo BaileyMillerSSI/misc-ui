@@ -53,6 +53,7 @@ const SignUpPage: NextPage = () => {
           label="Enter Email"
           type="email"
           autoComplete="email"
+          placeholder="Enter your email"
         />
 
         <Input<SignUpFormSchema>
@@ -61,6 +62,7 @@ const SignUpPage: NextPage = () => {
           label="Enter Password"
           type="password"
           autoComplete="new-password"
+          placeholder="Enter your password"
         />
 
         <Input<SignUpFormSchema>
@@ -68,6 +70,7 @@ const SignUpPage: NextPage = () => {
           control={control}
           label="Confirm Password"
           type="password"
+          placeholder="Confirm your password"
         />
 
         <div className="flex flex-row gap-2">
