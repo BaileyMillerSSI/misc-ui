@@ -7,18 +7,10 @@ import { z } from "zod";
 import DemoContainer from "~/atoms/DemoContainer";
 import Input from "~/atoms/Input";
 
-const formSchema = z
-  .object({
-    email: z.string().min(1, "Email is required").email(),
-    password: z.string().min(1, "Password is required"),
-    confirmPassword: z
-      .string()
-      .min(1, { message: "Confirm Password is required" }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
-    message: "Password don't match",
-  });
+const formSchema = z.object({
+  email: z.string().min(1, "Email is required").email(),
+  password: z.string().min(1, "Password is required"),
+});
 
 export type SignUpFormSchema = z.infer<typeof formSchema>;
 
@@ -63,14 +55,6 @@ const SignUpPage: NextPage = () => {
           type="password"
           autoComplete="new-password"
           placeholder="Enter your password"
-        />
-
-        <Input<SignUpFormSchema>
-          name="confirmPassword"
-          control={control}
-          label="Confirm Password"
-          type="password"
-          placeholder="Confirm your password"
         />
 
         <div className="flex flex-row gap-2">
