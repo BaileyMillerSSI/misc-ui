@@ -49,7 +49,7 @@ const Input = <FormType extends KnownFormSchemas>({
         htmlFor={name}
         className="absolute
             -top-5
-            left-0 select-none
+            left-0
             text-sm text-black transition-all
             peer-placeholder-shown:left-2
             peer-placeholder-shown:top-2
@@ -60,7 +60,7 @@ const Input = <FormType extends KnownFormSchemas>({
             peer-focus:text-sm
             peer-focus:text-black
             dark:text-white
-            peer-focus:dark:text-white"
+            peer-focus:dark:text-white z-50"
       >
         {label}
       </label>
