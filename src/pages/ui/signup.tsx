@@ -49,7 +49,12 @@ const SignUpPage: NextPage = () => {
   return (
     <DemoContainer>
       <form
-        onSubmit={void handleSubmit((form) => console.log(form))}
+        onSubmit={async (e) => {
+          await handleSubmit(async (form) => {
+            console.log(form);
+            await router.push({ pathname: "/ui/login" });
+          }, console.error)(e);
+        }}
         className="flex flex-col gap-6"
       >
         <Input<SignUpFormSchema>
