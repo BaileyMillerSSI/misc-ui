@@ -6,10 +6,23 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import DemoContainer from "~/atoms/DemoContainer";
 import Input from "~/atoms/Input";
+import { DateTime } from "luxon";
 
 const formSchema = z.object({
   email: z.string().min(1, "Email is required").email(),
   password: z.string().min(1, "Password is required"),
+  firstName: z.string(),
+  lastName: z.string(),
+  dateOfBirth: z.coerce
+    .date()
+    .min(
+      DateTime.now().minus({ years: 150 }).toJSDate(),
+      "Date too far in the past"
+    )
+    .max(
+      DateTime.now().startOf("day").toJSDate(),
+      "Date cannot be in the future"
+    ),
 });
 
 export type SignUpFormSchema = z.infer<typeof formSchema>;
@@ -44,7 +57,7 @@ const SignUpPage: NextPage = () => {
           control={control}
           label="Enter Email"
           type="email"
-          autoComplete="email"
+          autoComplete="username"
           placeholder="Enter your email"
         />
 
@@ -55,6 +68,33 @@ const SignUpPage: NextPage = () => {
           type="password"
           autoComplete="new-password"
           placeholder="Enter your password"
+        />
+
+        <Input<SignUpFormSchema>
+          name="firstName"
+          control={control}
+          label="First Name"
+          type="text"
+          autoComplete="given-name"
+          placeholder="Enter your first name"
+        />
+
+        <Input<SignUpFormSchema>
+          name="lastName"
+          control={control}
+          label="Last Name"
+          type="text"
+          autoComplete="family-name"
+          placeholder="Enter your last name"
+        />
+
+        <Input<SignUpFormSchema>
+          name="dateOfBirth"
+          control={control}
+          label="Date of Birth"
+          type="date"
+          autoComplete="bday"
+          placeholder="Enter your date of birth"
         />
 
         <div className="flex flex-row gap-2">
